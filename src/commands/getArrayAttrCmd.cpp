@@ -45,7 +45,7 @@ This command returns the values of attributes with non-numeric array data.
 #include <maya/MStatus.h>
 #include <maya/MSyntax.h>
 #include <maya/MTypeId.h>
-#include< maya/MVector.h>
+#include <maya/MVector.h>
 
 GetArrayAttrCmd::GetArrayAttrCmd()  {}
 GetArrayAttrCmd::~GetArrayAttrCmd() {}
