@@ -55,7 +55,7 @@ MStatus QuatToEulerArrayNode::initialize()
 
     inputQuatAttr = T.create("inputQuat", "iq", QuatArrayData::TYPE_ID, MObject::kNullObj, &status);
 
-    inputRotateOrderAttr = E.create("inputRotateOrder", "iro", 1, &status);
+    inputRotateOrderAttr = E.create("inputRotateOrder", "iro", 0, &status);
     E.setChannelBox(true);
     E.setKeyable(true);
     E.addField("xyz", 0);

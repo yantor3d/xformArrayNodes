@@ -85,7 +85,7 @@ MStatus DecomposeMatrixArrayNode::initialize()
 
     inputMatrixAttr = T.create("inputMatrix", "im", MFnData::kMatrixArray, MObject::kNullObj, &status);
 
-    inputRotateOrderAttr = E.create("inputRotateOrder", "ori", 1, &status);
+    inputRotateOrderAttr = E.create("inputRotateOrder", "ori", 0, &status);
     E.setChannelBox(true);
     E.setKeyable(true);
     E.addField("xyz", 0);
