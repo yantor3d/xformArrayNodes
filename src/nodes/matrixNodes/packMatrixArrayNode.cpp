@@ -193,8 +193,7 @@ MStatus PackMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
         inputRow1.resize(numberOfInputs, MVector::yAxis);
         inputRow2.resize(numberOfInputs, MVector::zAxis);
         inputRow3.resize(numberOfInputs, MVector::zero);
-
-        outputMatrix.resize(numberOfInputs);
+        outputMatrix.resize(size, fillValue);
 
         double m[4][4] = {
             {1.0, 0.0, 0.0, 0.0},
