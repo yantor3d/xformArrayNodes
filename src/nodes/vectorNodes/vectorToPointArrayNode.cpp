@@ -75,7 +75,7 @@ MStatus VectorToPointArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputPointAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputVectorAttr);

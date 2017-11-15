@@ -106,7 +106,7 @@ MStatus LerpVectorArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputVectorAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle input1Handle = data.inputValue(inputVector1Attr);

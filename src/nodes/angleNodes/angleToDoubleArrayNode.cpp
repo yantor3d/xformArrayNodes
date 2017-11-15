@@ -71,7 +71,7 @@ MStatus AngleToDoubleArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputAttr);

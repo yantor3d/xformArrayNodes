@@ -101,7 +101,7 @@ MStatus ComposeMatrixArrayNode::initialize()
     N.setChannelBox(true);
     N.setKeyable(true);
 
-    inputRotateOrderAttr = E.create("inputRotateOrder", "iro", 1, &status);
+    inputRotateOrderAttr = E.create("inputRotateOrder", "iro", 0, &status);
     E.setChannelBox(true);
     E.setKeyable(true);
     E.addField("xyz", 0);
@@ -142,7 +142,7 @@ MStatus ComposeMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputMatrixAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputTranslateHandle = data.inputValue(inputTranslateAttr);

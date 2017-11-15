@@ -97,7 +97,7 @@ MStatus SlerpQuatArrayNode::compute(const MPlug& plug, MDataBlock& data)
     
     if (plug != outputQuatAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle input1Handle = data.inputValue(inputQuat1Attr);

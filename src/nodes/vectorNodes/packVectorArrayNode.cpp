@@ -176,7 +176,7 @@ MStatus PackVectorArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputVectorAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     short inputMethod = data.inputValue(inputMethodAttr).asShort();

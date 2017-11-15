@@ -21,6 +21,7 @@
 #include <maya/MFnPointArrayData.h>
 #include <maya/MFnVectorArrayData.h>
 #include <maya/MFnData.h>
+#include <maya/MGlobal.h>
 #include <maya/MMatrix.h>
 #include <maya/MMatrixArray.h>
 #include <maya/MObject.h>

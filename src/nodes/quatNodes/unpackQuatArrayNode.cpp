@@ -158,6 +158,7 @@ MStatus UnpackQuatArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (
         plug != outputQuatAttr && 
+        plug.parent() != outputQuatAttr &&
         plug != outputXAttr    &&
         plug != outputYAttr    &&
         plug != outputZAttr    &&
@@ -165,7 +166,7 @@ MStatus UnpackQuatArrayNode::compute(const MPlug& plug, MDataBlock& data)
         plug != outputAxisAttr &&
         plug != outputAngleAttr
     ) {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputQuatAttr);

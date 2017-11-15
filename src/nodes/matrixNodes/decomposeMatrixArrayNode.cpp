@@ -136,7 +136,7 @@ MStatus DecomposeMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputAttr && plug.parent() != outputAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     short rotateOrderIdx  = data.inputValue(inputRotateOrderAttr).asShort();

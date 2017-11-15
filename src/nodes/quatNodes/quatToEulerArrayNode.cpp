@@ -86,7 +86,7 @@ MStatus QuatToEulerArrayNode::compute(const MPlug& plug, MDataBlock& data)
     
     if (plug != outputRotateAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputQuatAttr);

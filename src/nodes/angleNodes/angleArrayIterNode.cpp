@@ -28,6 +28,7 @@ This node outputs the elements of a contiguous doubleAngle array.
 #include <maya/MDataHandle.h>
 #include <maya/MFnTypedAttribute.h>
 #include <maya/MFnUnitAttribute.h>
+#include <maya/MGlobal.h>
 #include <maya/MPlug.h>
 #include <maya/MPxNode.h>
 #include <maya/MString.h>
@@ -75,7 +76,7 @@ MStatus AngleArrayIterNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputAttr);

@@ -120,12 +120,13 @@ MStatus UnpackMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
     
     if (
         plug != outputMatrixAttr &&
+        plug.parent() != outputMatrixAttr &&
         plug != outputRow0Attr &&
         plug != outputRow1Attr &&
         plug != outputRow2Attr &&
         plug != outputRow3Attr
     ) {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputMatrixHandle = data.inputValue(inputMatrixAttr);

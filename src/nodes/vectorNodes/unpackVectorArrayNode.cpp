@@ -123,11 +123,12 @@ MStatus UnpackVectorArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (
         plug != outputVectorAttr && 
+        plug.parent() != outputVectorAttr &&
         plug != outputXAttr    &&
         plug != outputYAttr    &&
         plug != outputZAttr
     ) {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputVectorAttr);

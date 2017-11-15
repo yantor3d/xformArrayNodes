@@ -106,7 +106,7 @@ MStatus VectorArrayToDoubleOpNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     short operation = data.inputValue(operationAttr).asShort();

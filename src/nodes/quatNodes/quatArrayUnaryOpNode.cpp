@@ -96,7 +96,7 @@ MStatus QuatArrayUnaryOpNode::compute(const MPlug& plug, MDataBlock& data)
     
     if (plug != outputQuatAttr)
     {
-        return MStatus::kSuccess;
+        return MStatus::kInvalidParameter;
     }
 
     MDataHandle inputHandle = data.inputValue(inputQuatAttr);

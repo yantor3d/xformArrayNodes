@@ -232,7 +232,7 @@ MStatus PackQuatArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputQuatAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     short inputMethod = data.inputValue(inputMethodAttr).asShort();

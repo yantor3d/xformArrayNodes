@@ -104,7 +104,7 @@ MStatus VectorArrayMatrixOpNode::compute(const MPlug& plug, MDataBlock& data)
 
     if (plug != outputVectorAttr)
     {
-        return MStatus::kUnknownParameter;
+        return MStatus::kInvalidParameter;
     }
 
     short operation = data.inputValue(operationAttr).asShort();
