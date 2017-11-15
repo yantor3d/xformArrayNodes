@@ -70,9 +70,7 @@ MStatus VectorArrayScalarOpNode::initialize()
 
     inputVectorAttr = T.create("inputVector", "iv", MFnData::kVectorArray, MObject::kNullObj, &status);
 
-    scalarAttr = N.create("scalar", "sc", MFnNumericData::kDouble, 0, &status);
-    N.setChannelBox(true);
-    N.setKeyable(true);
+    scalarAttr = T.create("scalar", "sc", MFnData::kDoubleArray, MObject::kNullObj, &status);
 
     operationAttr =   E.create("operation", "op", 1, &status);
     E.setChannelBox(true);
@@ -110,11 +108,13 @@ MStatus VectorArrayScalarOpNode::compute(const MPlug& plug, MDataBlock& data)
     short operation = data.inputValue(operationAttr).asShort();
 
     MDataHandle inputVectorHandle = data.inputValue(inputVectorAttr);
+    MDataHandle inputScalarHandle = data.inputValue(scalarAttr);
 
     std::vector<MVector> vector_ = getMayaArray<MVector, MFnVectorArrayData>(inputVectorHandle);
-    double               scalar = data.inputValue(scalarAttr).asDouble();
+    std::vector<double>  scalar  = getMayaArray<double, MFnDoubleArrayData>(inputScalarHandle);
 
     size_t numberOfValues = vector_.size();
+    scalar.resize(numberOfValues, 1);
 
     std::vector<MVector> output(numberOfValues);
 
@@ -128,7 +128,7 @@ MStatus VectorArrayScalarOpNode::compute(const MPlug& plug, MDataBlock& data)
 
     for (size_t i = 0; i < numberOfValues; i++)
     {
-        output[i] = F(vector_[i], scalar);
+        output[i] = F(vector_[i], scalar[i]);
     }
 
     MDataHandle outputHandle = data.outputValue(outputVectorAttr);
