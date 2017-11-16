@@ -187,17 +187,13 @@ MStatus ComposeMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
         for (size_t i = 0; i < numberOfEulerRotates; i++)
         {
             MEulerRotation &e = eulerRotate[i];
-            values[0] = e.x;
-            values[1] = e.y;
-            values[2] = e.z;
-
-            matrix[i].setRotation(values, rotateOrder);
+            matrix[i].rotateTo(e);
         }
     } else {
         for (size_t i = 0; i < numberOfQuatRotates; i++)
         {
             MQuaternion &q = quatRotate[i];
-            matrix[i].setRotationQuaternion(q.x, q.y, q.z, q.w);
+            matrix[i].rotateTo(q);
         }
     }
 
