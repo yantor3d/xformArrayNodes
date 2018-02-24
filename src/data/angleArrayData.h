@@ -33,7 +33,7 @@ public:
 
     virtual unsigned int        length();
     virtual std::vector<MAngle> getArray();
-    virtual void                setArray(std::vector<MAngle> array);                   
+    virtual void                setArray(std::vector<MAngle> &array);                   
 
     virtual MTypeId typeId() const;
     virtual MString name()   const;
@@ -43,7 +43,7 @@ public:
     static const MString TYPE_NAME;
 
 private:
-    virtual void                setValues(std::vector<double> values);
+    virtual void                setValues(std::vector<double> &values);
     virtual std::vector<double> getValues();
     
 private:

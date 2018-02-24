@@ -33,7 +33,7 @@ public:
 
     virtual unsigned int                length();
     virtual std::vector<MEulerRotation> getArray();
-    virtual void                        setArray(std::vector<MEulerRotation> array);  
+    virtual void                        setArray(std::vector<MEulerRotation> &array);  
 
     virtual MTypeId typeId() const;
     virtual MString name()   const;
@@ -42,7 +42,7 @@ public:
     static const MString TYPE_NAME;
 
 private:
-    virtual void                setValues(std::vector<double> values);
+    virtual void                setValues(std::vector<double> &values);
     virtual std::vector<double> getValues();
 
 private:

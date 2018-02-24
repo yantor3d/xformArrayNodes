@@ -89,7 +89,7 @@ std::vector<MQuaternion> QuatArrayData::getArray()
 }
 
 
-void QuatArrayData::setArray(std::vector<MQuaternion> array)
+void QuatArrayData::setArray(std::vector<MQuaternion> &array)
 {
     this->data.resize(array.size());
     std::copy(
@@ -100,7 +100,7 @@ void QuatArrayData::setArray(std::vector<MQuaternion> array)
 }
 
 
-void QuatArrayData::setValues(std::vector<double> values)
+void QuatArrayData::setValues(std::vector<double> &values)
 {
     size_t numberOfValues = values.size();
     size_t numberOfItems = numberOfValues / 4;
@@ -109,10 +109,10 @@ void QuatArrayData::setValues(std::vector<double> values)
     for (size_t i = 0; i < numberOfItems; i++)
     {
         this->data[i] = MQuaternion(
+            values[(i*4)+0], 
             values[(i*4)+1], 
-            values[(i*4)+1], 
-            values[(i*4)+1],
-            values[(i*4)+1]
+            values[(i*4)+2],
+            values[(i*4)+3]
         );
     }
 }

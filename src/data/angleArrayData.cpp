@@ -91,7 +91,7 @@ std::vector<MAngle> AngleArrayData::getArray()
 }
 
 
-void AngleArrayData::setArray(std::vector<MAngle> array)
+void AngleArrayData::setArray(std::vector<MAngle> &array)
 {
     this->data.resize(array.size());
     std::copy(
@@ -102,7 +102,7 @@ void AngleArrayData::setArray(std::vector<MAngle> array)
 }
 
 
-void AngleArrayData::setValues(std::vector<double> values)
+void AngleArrayData::setValues(std::vector<double> &values)
 {
     MAngle::Unit u = MAngle::uiUnit();
     size_t numberOfItems = values.size();

@@ -97,7 +97,7 @@ std::vector<MEulerRotation> EulerArrayData::getArray()
 }
 
 
-void EulerArrayData::setArray(std::vector<MEulerRotation> array)
+void EulerArrayData::setArray(std::vector<MEulerRotation> &array)
 {
     this->data.resize(array.size());
     std::copy(
@@ -108,7 +108,7 @@ void EulerArrayData::setArray(std::vector<MEulerRotation> array)
 }
 
 
-void EulerArrayData::setValues(std::vector<double> values)
+void EulerArrayData::setValues(std::vector<double> &values)
 {
     size_t numberOfValues = values.size();
     size_t numberOfItems = numberOfValues / 3;
