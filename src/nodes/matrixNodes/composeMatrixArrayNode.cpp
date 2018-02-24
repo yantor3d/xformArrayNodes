@@ -147,15 +147,16 @@ MStatus ComposeMatrixArrayNode::compute(const MPlug& plug, MDataBlock& data)
 
     MDataHandle inputTranslateHandle = data.inputValue(inputTranslateAttr);
     MDataHandle inputRotateHandle    = data.inputValue(inputRotateAttr);
-    MDataHandle inputQuateHandle     = data.inputValue(inputQuatAttr);
+    MDataHandle inputQuatHandle      = data.inputValue(inputQuatAttr);
     MDataHandle inputScaleHandle     = data.inputValue(inputScaleAttr);
     MDataHandle inputShearHandle     = data.inputValue(inputShearAttr);
 
     std::vector<MVector>        translate   = getMayaArray<MVector, MFnVectorArrayData>(inputTranslateHandle);
     std::vector<MVector>        scale       = getMayaArray<MVector, MFnVectorArrayData>(inputScaleHandle);
     std::vector<MVector>        shear       = getMayaArray<MVector, MFnVectorArrayData>(inputShearHandle);
+
     std::vector<MEulerRotation> eulerRotate = getUserArray<MEulerRotation, EulerArrayData>(inputRotateHandle);
-    std::vector<MQuaternion>    quatRotate  = getUserArray<MQuaternion, QuatArrayData>(inputRotateHandle);
+    std::vector<MQuaternion>    quatRotate  = getUserArray<MQuaternion, QuatArrayData>(inputQuatHandle);
 
     bool useEulerRotation = data.inputValue(useEulerRotationAttr).asBool();
 
