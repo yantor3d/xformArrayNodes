@@ -75,7 +75,7 @@ Maya plugin with nodes designed to operate on transform components.
 
 
 const char* AUTHOR               = "Ryan Porter";
-const char* VERSION              = "0.1.0";
+const char* VERSION              = "1.0.0";
 const char* REQUIRED_API_VERSION = "Any";
 
 const MString AngleArrayData::TYPE_NAME       = "angleArray";
