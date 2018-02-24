@@ -37,7 +37,7 @@ This node outputs arrays of the angles that make up euler rotation values.
 #include <maya/MDataBlock.h>
 #include <maya/MDataHandle.h>
 #include <maya/MEulerRotation.h>
-#include <maya/MFnCompoundAttribute.h>
+#include <maya/MFnNumericAttribute.h>
 #include <maya/MFnTypedAttribute.h>
 #include <maya/MFnUnitAttribute.h>
 #include <maya/MPlug.h>
@@ -67,7 +67,7 @@ MStatus UnpackEulerArrayNode::initialize()
 {
     MStatus status;
 
-    MFnCompoundAttribute C;
+    MFnNumericAttribute N;
     MFnTypedAttribute T;
     MFnUnitAttribute U;
 
@@ -78,13 +78,10 @@ MStatus UnpackEulerArrayNode::initialize()
     outputRotateXAttr = U.create("outputRotateX", "orX", MFnUnitAttribute::kAngle, 0, &status);
     outputRotateYAttr = U.create("outputRotateY", "orY", MFnUnitAttribute::kAngle, 0, &status);
     outputRotateZAttr = U.create("outputRotateZ", "orZ", MFnUnitAttribute::kAngle, 0, &status);    
-    outputRotateAttr  = C.create("outputRotate",  "or", &status);
-    C.setArray(true);
-    C.setStorable(false);
-    C.setUsesArrayDataBuilder(true);
-    C.addChild(outputRotateXAttr);
-    C.addChild(outputRotateYAttr);
-    C.addChild(outputRotateZAttr);
+    outputRotateAttr  = N.create("outputRotate",  "or", outputRotateXAttr, outputRotateYAttr, outputRotateZAttr, &status);
+    N.setArray(true);
+    N.setStorable(false);
+    N.setUsesArrayDataBuilder(true);
 
     outputAngleXAttr = T.create("outputAngleX", "oax", AngleArrayData::TYPE_ID, MObject::kNullObj, &status);
     T.setStorable(false);
