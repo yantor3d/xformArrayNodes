@@ -88,8 +88,8 @@ const MTypeId QuatArrayData::TYPE_ID        = 0x00126b3c;
 
 MString GetArrayAttrCmd::COMMAND_NAME         = "getArrayAttr";
 
-MString AngleArrayCtorNode::NODE_NAME         = "angleArrayCtor";
-MString AngleArrayIterNode::NODE_NAME         = "angleArrayIter";
+MString AngleArrayCtorNode::NODE_NAME         = "packAngleArray";
+MString AngleArrayIterNode::NODE_NAME         = "unpackAngleArray";
 MString AngleToDoubleArrayNode::NODE_NAME     = "angleToDoubleArray";
 MString DoubleToAngleArrayNode::NODE_NAME     = "doubleToAngleArray";
 
